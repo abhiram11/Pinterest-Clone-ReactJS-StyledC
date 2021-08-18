@@ -3,9 +3,9 @@ import { IconButton } from "@material-ui/core";
 import React from "react";
 import {
   HeaderContainer,
-  HeaderLeft,
-  HeaderMid,
-  HeaderRight,
+  // HeaderLeft,
+  // HeaderMid,
+  // HeaderRight,
   HomeButton,
   PinLogo,
   SearchBar,
