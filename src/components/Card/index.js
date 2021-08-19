@@ -6,6 +6,7 @@ import {
   CardBottomLeft,
   CardBottomRight,
   CardContainer,
+  // CardHover,
   CardTop,
   CardTopLink,
   CardTopText,
@@ -27,12 +28,11 @@ const Card = ({ playListName, imgUrl, link }) => {
       <CardContainer
         onMouseEnter={onHover}
         onMouseLeave={onHover}
-        style={{
-          backgroundImage: `url(${imgUrl})`,
-        }}
+        imgUrl={imgUrl}
       >
         {hover ? (
           <>
+            {/* <CardHover></CardHover> */}
             <CardTop>
               <CardTopText>
                 <h2>{playListName}</h2>
@@ -43,7 +43,7 @@ const Card = ({ playListName, imgUrl, link }) => {
             <CardBottom>
               <CardBottomLeft>
                 <ArrowIcon style={{ height: "16px", width: "16px" }} />
-                <h4>Link</h4>
+                <h4>{link.length <= 8 ? link : `${link.slice(0, 6)}...`}</h4>
               </CardBottomLeft>
               <CardBottomRight>
                 <Share />

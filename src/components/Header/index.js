@@ -1,12 +1,10 @@
 import { Avatar } from "@material-ui/core";
 import { IconButton } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import {
   HeaderContainer,
-  // HeaderLeft,
-  // HeaderMid,
-  // HeaderRight,
-  HomeButton,
+  HomeButton1,
+  HomeButton2,
   PinLogo,
   SearchBar,
   Search,
@@ -17,6 +15,12 @@ import {
 } from "./HeaderElements";
 
 const Header = () => {
+  const [activeButton, setActiveButton] = useState(true);
+  const changeActiveButton = (val) => {
+    if (val === "home") {
+      setActiveButton(true);
+    } else setActiveButton(false);
+  };
   return (
     <>
       <HeaderContainer>
@@ -24,8 +28,20 @@ const Header = () => {
         <IconButton>
           <PinLogo src="https://www.freepnglogos.com/uploads/pinterest-icon-transparent-background-5.png" />
         </IconButton>
-        <HomeButton>Home</HomeButton>
-        <HomeButton>Today</HomeButton>
+        <HomeButton1
+          activeButton={activeButton}
+          onClick={() => changeActiveButton("home")}
+          to="/"
+        >
+          Home
+        </HomeButton1>
+        <HomeButton2
+          activeButton={activeButton}
+          onClick={() => changeActiveButton("today")}
+          to="/today"
+        >
+          Today
+        </HomeButton2>
 
         {/* <h1>Mid</h1> */}
         <SearchBar>
@@ -55,52 +71,3 @@ const Header = () => {
 };
 
 export default Header;
-
-/*
-
-const Header = () => {
-  return (
-    <>
-      <HeaderContainer>
-        <HeaderLeft>
-          <IconButton>
-            <PinLogo src="https://www.freepnglogos.com/uploads/pinterest-icon-transparent-background-5.png" />
-          </IconButton>
-          <HomeButton>Home</HomeButton>
-          <HomeButton>Today</HomeButton>
-        </HeaderLeft>
-
-        <HeaderMid>
-          <SearchBar>
-            <Search></Search>
-            <SearchInput placeholder="Search"></SearchInput>
-          </SearchBar>
-        </HeaderMid>
-
-        <HeaderRight>
-          <IconButton>
-            <BellIcon style={{ height: "32px", width: "32px" }} />
-          </IconButton>
-          <IconButton>
-            <MsgIcon style={{ height: "28px", width: "28px" }} />
-          </IconButton>
-          <IconButton>
-            <Avatar
-              style={{ height: "24px", width: "24px" }}
-              src="https://lh3.googleusercontent.com/ogw/ADea4I5HL-IsHBtXW7Nh26jwXrnRbwmfay3pbLZCqNKRGQ=s32-c-mo"
-            />
-          </IconButton>
-          <IconButton size="small">
-            <ExpandMore />
-          </IconButton>
-        </HeaderRight>
-      </HeaderContainer>
-    </>
-  );
-};
-
-export default Header;
-
-
-
-*/

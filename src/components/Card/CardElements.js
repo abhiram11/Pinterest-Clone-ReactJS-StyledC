@@ -12,23 +12,37 @@ export const CardContainer = styled.div`
   justify-content: space-between;
   flex-direction: column;
   border-radius: 14px;
-  margin 20px;
+  margin: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
+  background-image: url(${({ imgUrl }) => (imgUrl ? imgUrl : "")});
+  cursor: -moz-zoom-in;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  transition: all 1s ease-in-out;
 `;
+
+// export const CardHover = styled.img`
+//   width: 100%;
+//   height: 100%;
+//   background: rgba(0, 0, 0, 0.6);
+//   z-index: 1;
+// `;
 
 export const CardTop = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px;
+  z-index: 99;
 `;
 
 export const CardBottom = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin: 10px;
+  z-index: 99;
 `;
 
 export const CardTopText = styled.div`
@@ -62,9 +76,8 @@ export const CardBottomLeft = styled.div`
   align-items: center;
   background: #efefef;
   border-radius: 24px;
-  padding: 0 14px;
+  padding: 8px 14px;
   margin-right: 4px;
-
   opacity: 0.8;
 
   &:hover {
@@ -78,6 +91,8 @@ export const ArrowIcon = styled(CallMadeIcon)`
 
 export const CardBottomRight = styled.div`
   //   cursor: pointer;
+  display: flex;
+  align-items: center;
 `;
 
 export const Share = styled(CloudUploadIcon)`
@@ -99,7 +114,7 @@ export const Dots = styled(MoreHorizIcon)`
   opacity: 0.8;
   cursor: pointer;
   border-radius: 100%;
-  margin-right: 4px;
+  // margin-right: 4px;
 
   padding: 8px;
   &:hover {
